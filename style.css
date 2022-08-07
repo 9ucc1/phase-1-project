@@ -1,3 +1,26 @@
+h1#big-title {
+    color: white;
+    text-align: center;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+}
+
+div#buttons {
+    text-align: center;
+}
+
+div#search-result-display {
+    text-align: center;
+}
+
+p#searchbar-text {
+    text-align: center;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+}
+
+form#movie-search {
+    text-align: center;
+}
+
 body {
-    background: yellowgreen;
+    background: cornflowerblue;
   }

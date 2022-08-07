@@ -5,14 +5,36 @@
     <title>phase1project</title>
   </head>
   <body>
-    <h1>ghibli movie list maker</h1>
+    <h1 id="big-title">studio ghibli movie finder</h1>
 
-    <h2>Find a Movie</h2>
+    <div id="buttons">
+        <button type="button" id="all-movies">Explore All Movies (nonfunctional rn)</button>
+
+    <p id="searchbar-text">or search for a movie by title</p>
 
     <form id='movie-search'>
       <input id='search' type='text' name='search'>
       <input type='submit' name='submit'/>
     </form>
+
+    <!--button type="button" id="randomize">Randomize!</button-->
+    </div>
+
+    <div id='search-result-display'>
+        <p id='search-result'>
+
+        </p>
+      </div>
+
+    <div id='movie-lists'>
+        <ul id='to-watch-list'>
+  
+        </ul>
+  
+        <ul id='watched-list'>
+  
+        </ul>
+      </div>
 
     <script defer src="script.js"></script>
   </body>

@@ -1,5 +1,5 @@
 const h2 = document.createElement("h2");
-h2.textContent = "null";
+h2.textContent = "";
 document.querySelector("body").appendChild(h2);
 
 const form = document.getElementById("movie-search")
@@ -12,6 +12,23 @@ form.addEventListener("submit", (event) => {
     .then(response => response.json())
     .then(response => {
         console.log(response[0].title)
+        const searchResult = document.getElementById("search-result")
+        searchResult.innerHTML = ""
+        const li = document.createElement("ul")
+        response.map(item =>{
+            const img = document.createElement("img")
+            img.src = item.image
+            const titleAndYear = document.createElement("h3")
+            titleAndYear.innerText = item.title + " (" + item.release_date + ")"
+            const ogTitle = document.createElement("h4")
+            ogTitle.innerText = item.original_title
+            const director = document.createElement("h4")
+            director.innerText = "Directed by " + item.director
+            const description = document.createElement("p")
+            description.innerText = item.description
+            li.append(img, titleAndYear, ogTitle, director, description)
+            searchResult.append(li)
+        })
     })
     form.reset()
 })
