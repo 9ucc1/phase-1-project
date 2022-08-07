@@ -1,6 +1,6 @@
 # Phase 1 Project
 
-## GHIBLI MOVIE LIST MAKER
+## STUDIO GHIBLI MOVIE FINDER
 
 Top text:
 Make a list of your favorite Studio Ghibli movies and keep track of the ones you want to watch next!
@@ -10,9 +10,9 @@ If you've never seen any Studio Ghibli movies and don't know where to start, hit
 https://ghibliapi.herokuapp.com/films
 
 Basic idea:
-- Creates 2 lists of ghibli movies: TO WATCH and WATCHED
+- Creates 2 lists of ghibli movies: TO WATCH and FAVORITES
 - Returns a movie from a search bar based on title, or explore all movies
-- "Add to my list" or "search again"/"next result"
+- "favorite" or "add to watch list" or "next result"
 
 Basic layout:
 - Top: search

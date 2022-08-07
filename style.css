@@ -31,3 +31,11 @@ body {
 p#explore-result img {
     width: 200px;
 }
+
+p#search-result img{
+    width: 350px;
+}
+
+img#exploreresultafterclick {
+    width: 50px
+}

@@ -1,6 +1,6 @@
-const h2 = document.createElement("h2");
-h2.textContent = "";
-document.querySelector("body").appendChild(h2);
+//const h2 = document.createElement("h2");
+//h2.textContent = "";
+//document.querySelector("body").appendChild(h2);
 
 const searchResult = document.getElementById("search-result")
 const exploreResult = document.getElementById("explore-result")
@@ -28,7 +28,14 @@ allMovies.addEventListener("click", (event) => {
             img.addEventListener("click", (event) => {
                 event.preventDefault()
                 exploreResult.innerHTML = ""
-                exploreResult.append(img, titleAndYear)
+                const ogTitle = document.createElement("h4")
+                ogTitle.innerText = item.original_title
+                const director = document.createElement("h4")
+                director.innerText = "Directed by " + item.director
+                const description = document.createElement("p")
+                description.innerText = item.description
+                exploreResult.append(img, titleAndYear, ogTitle, director, description)
+                img.setAttribute("id", "exploreresultafterclick")
             })
         })
     })
@@ -58,6 +65,10 @@ form.addEventListener("submit", (event) => {
             director.innerText = "Directed by " + item.director
             const description = document.createElement("p")
             description.innerText = item.description
+            //const previousResult = document.createElement("button")
+            //previousResult.innerText = "previous result"
+            //const nextResult = document.createElement("button")
+            //nextResult.innerText = "next result"
             li.append(img, titleAndYear, ogTitle, director, description)
             searchResult.append(li)
         })
@@ -65,27 +76,6 @@ form.addEventListener("submit", (event) => {
     
     form.reset()
 })
-    // I want to iterate through the array of objects to find the object
-    // that contains the title key with the value that I searched
-
-        //login, avatar_url, url
-        //console.log("login", response.items[0].login)
-        /*response.items.map(item =>{
-            const li = document.createElement("li")
-            const h2 = document.createElement("h2")
-            h2.textContent = item.login
-            h2.addEventListener("click", e => showUserRepos(item.login, e))
-
-            const img = document.createElement("img")
-            img.src = item.avatar_url
-            const a = document.createElement("a")
-            a.href = item.html_url
-            a.innerText = "profile"
-
-            const userList = document.querySelector("#user-list")
-            li.append(h2, img, a)
-            userList.append(li)
-        })*/
 
 /*const randomizeButton = document.getElementById("randomize")
 randomizeButton.addEventListener("click", (event) =>{
