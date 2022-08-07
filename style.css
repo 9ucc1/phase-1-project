@@ -11,6 +11,9 @@ div#buttons {
 div#search-result-display {
     text-align: center;
 }
+div#explore-result-display {
+    text-align: center;
+}
 
 p#searchbar-text {
     text-align: center;
@@ -24,3 +27,7 @@ form#movie-search {
 body {
     background: cornflowerblue;
   }
+
+p#explore-result img {
+    width: 200px;
+}
