@@ -50,3 +50,9 @@ Formattimg search results from search bar:
 - adding button for favorite, watch later
 - if nothing is put in the search bar, how to stop returning all results when submit is clicked
 Making to watch / watched list
+
+8/19
+Explore all movies:
+- mouseover changes cursor to pointer(?)
+Lists:
+- append item to list when button is clicked
