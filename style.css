@@ -4,6 +4,10 @@ h1#big-title {
     font-family: "Helvetica Neue", "Arial", sans-serif;
 }
 
+button {
+    cursor: pointer;
+}
+
 div#buttons {
     text-align: center;
 }
@@ -37,5 +41,9 @@ p#search-result img{
 }
 
 img#exploreresultafterclick {
-    width: 50px
+    width: 50px;
+}
+
+img#allmovieslist {
+    cursor: pointer;
 }

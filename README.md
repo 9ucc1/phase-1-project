@@ -56,3 +56,8 @@ Explore all movies:
 - mouseover changes cursor to pointer(?)
 Lists:
 - append item to list when button is clicked
+
+8/30
+- added cursor change to pointer when mouseover search results and buttons
+- removed favorites list
+- started watch list, having some issues (I want to display array of movie pictures)
