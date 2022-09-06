@@ -44,6 +44,11 @@ img#exploreresultafterclick {
     width: 50px;
 }
 
+img#watchImg {
+    width: 200px;
+    cursor: pointer;
+}
+
 img#allmovieslist {
     cursor: pointer;
 }

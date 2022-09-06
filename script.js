@@ -6,20 +6,30 @@ const searchResult = document.getElementById("search-result")
 const exploreResult = document.getElementById("explore-result")
 
 const watchListButton = document.getElementById("watch")
+const clearListButton = document.getElementById("clear-list")
+    clearListButton.style.visibility = "hidden"
 const watchList = document.getElementById("watch-list")
-const watchArray = []
+const watchArray = document.createElement("p")
 watchListButton.addEventListener("click", () => {
     exploreResult.innerHTML = ""
     searchResult.innerHTML = ""
-    watchList.innerText = watchArray
+    watchList.style.visibility = "visible"
+    clearListButton.style.visibility = "visible"
+    //watchList.innerHTML = watchArray
 })
 
+clearListButton.addEventListener("click", ()=> {
+    watchList.innerHTML = ""
+    alert("List cleared!")
+})
 
 const allMovies = document.getElementById("all-movies")
 allMovies.addEventListener("click", (event) => {
     event.preventDefault()
     searchResult.innerHTML = ""
     exploreResult.innerHTML = ""
+    watchList.style.visibility = "hidden"
+    clearListButton.style.visibility = "hidden"
     fetch(`https://ghibliapi.herokuapp.com/films`)
     .then(response => response.json())
     .then(response => {
@@ -44,24 +54,28 @@ allMovies.addEventListener("click", (event) => {
                 const watchButton = document.createElement("button")
                 watchButton.setAttribute("id", "add-to-watch")
                 watchButton.innerText = "Add to Watch List"
-                    watchButton.addEventListener("click", (event) => watchArray.push(item.image))
                 exploreResult.append(img, titleAndYear, ogTitle, director, description, watchButton)
+                const watchListEntry = document.createElement("li")
+                watchListEntry.innerText = item.title + " (" + item.release_date + ")"
+                /*const watchImg = document.createElement("img")
+                watchImg.src = item.image
+                watchImg.setAttribute("id", "watchImg")*/
+                watchButton.addEventListener("click", (event) => {
+                    watchList.append(watchListEntry)
+                })
+                watchButton.addEventListener("click", event => alert("Added to watch list!"))
             })
         })
     })
 })
-/*const favButton = document.getElementById("add-to-favorites")
-            favButton.addEventListener("click", () => {
-                const favList = document.getElementById("favorites-list")
-                favList.append("HUH?")
-            })*/
-
 
 const form = document.getElementById("movie-search")
 form.addEventListener("submit", (event) => {
     event.preventDefault()
     searchResult.innerHTML = ""
     exploreResult.innerHTML = ""
+    watchList.style.visibility = "hidden"
+    clearListButton.style.visibility = "hidden"
     // data we want to pass from the form: what you searched
     //event.target[0].value
     fetch(`https://ghibliapi.herokuapp.com/films?q=${event.target[0].value}`)
@@ -75,7 +89,6 @@ form.addEventListener("submit", (event) => {
             const watchButton = document.createElement("button")
             watchButton.setAttribute("id", "add-to-watch")
             watchButton.innerText = "Add to Watch List"
-                watchButton.addEventListener("click", () => console.log("HI"))
             const titleAndYear = document.createElement("h2")
             titleAndYear.innerText = item.title + " (" + item.release_date + ")"
             const ogTitle = document.createElement("h4")
@@ -86,12 +99,17 @@ form.addEventListener("submit", (event) => {
             description.innerText = item.description
             li.append(img, titleAndYear, ogTitle, director, description, watchButton)
             searchResult.append(li)
+            const watchListEntry = document.createElement("li")
+                watchListEntry.innerText = item.title + " (" + item.release_date + ")"
+            /*const watchImg = document.createElement("img")
+                watchImg.src = item.image
+                watchImg.setAttribute("id", "watchImg")*/
+                watchButton.addEventListener("click", (event) => {
+                    watchList.append(watchListEntry)
+                })
+                watchButton.addEventListener("click", event => alert("Added to watch list!"))
         })
     })
     
     form.reset()
 })
-
-function appendWatch(){
-    console.log("HIII")
-}

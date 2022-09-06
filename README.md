@@ -2,37 +2,32 @@
 
 ## STUDIO GHIBLI MOVIE FINDER
 
-Top text:
-Make a list of your favorite Studio Ghibli movies and keep track of the ones you want to watch next!
+Read about Studio Ghibli movies and keep track of the ones you want to watch next!
 
 If you've never seen any Studio Ghibli movies and don't know where to start, hit Explore All Movies.
 
 https://ghibliapi.herokuapp.com/films
 
 Basic idea:
-- Creates 2 lists of ghibli movies: TO WATCH and FAVORITES
+- Creates a list of ghibli movies to watch
 - Returns a movie from a search bar based on title, or explore all movies
-- "favorite" or "add to watch list" or "next result"
+- "add to watch list" at bottom of movie description
 
 Basic layout:
 - Top: search
     - 1. Explore All Movies button
         - returns all movies images, mousing over lets you see the title/year
         - clicking gives you detailed movie page like how search would return
-    - 2. Search bar + space for result to appear (prefer one at a time?)
+    - 2. Search bar + space for result to appear
         - Text: "search for movie by title"
         - Buttons: search, add to watch list, add to favorites list
         - Image: movie image, title, original title, year, description
-- Bottom: two columns
-    - 1. TO WATCH list
-        - assembles movies from the first column that user hits "add to my list" on
+- Bottom:
+    - TO WATCH list
+        - assembles movies from search/explore that user hits "add to my list" on
         - un-numbered list
         - stores movie poster + title, year
-        - button: delete, clear list, "favorite" moves movie from TO WATCH to FAVORITE
-    - 2. FAVORITE list
-        - unnumbered list
-        - assembles movies from TO WATCH list or "already watched" button
-        - delete button / clear list
+        - button: delete, clear list
 
 
 I have questions about:
@@ -61,3 +56,11 @@ Lists:
 - added cursor change to pointer when mouseover search results and buttons
 - removed favorites list
 - started watch list, having some issues (I want to display array of movie pictures)
+- want to make an alert: "added to watch list!"
+
+9/05
+- watch list buttons now work to add simple movie title + year to watch list
+- alert added
+- clear list button added
+- want to make delete button on individual watch list items to remove from watch list
+- link movie title to description page ...?
