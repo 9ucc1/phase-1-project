@@ -1,7 +1,3 @@
-//const h2 = document.createElement("h2");
-//h2.textContent = "";
-//document.querySelector("body").appendChild(h2);
-
 const searchResult = document.getElementById("search-result")
 const exploreResult = document.getElementById("explore-result")
 
@@ -15,7 +11,6 @@ watchListButton.addEventListener("click", () => {
     searchResult.innerHTML = ""
     watchList.style.visibility = "visible"
     clearListButton.style.visibility = "visible"
-    //watchList.innerHTML = watchArray
 })
 
 clearListButton.addEventListener("click", ()=> {
@@ -57,11 +52,16 @@ allMovies.addEventListener("click", (event) => {
                 exploreResult.append(img, titleAndYear, ogTitle, director, description, watchButton)
                 const watchListEntry = document.createElement("li")
                 watchListEntry.innerText = item.title + " (" + item.release_date + ")"
-                /*const watchImg = document.createElement("img")
-                watchImg.src = item.image
-                watchImg.setAttribute("id", "watchImg")*/
+                const removeButton = document.createElement("button")
+                    removeButton.innerText = "Remove"
+                    removeButton.setAttribute("id", "remove")
+                    removeButton.addEventListener("click", event => {
+                        watchListEntry.remove()
+                        removeButton.remove()
+                    })
                 watchButton.addEventListener("click", (event) => {
                     watchList.append(watchListEntry)
+                    watchList.append(removeButton)
                 })
                 watchButton.addEventListener("click", event => alert("Added to watch list!"))
             })
@@ -101,15 +101,19 @@ form.addEventListener("submit", (event) => {
             searchResult.append(li)
             const watchListEntry = document.createElement("li")
                 watchListEntry.innerText = item.title + " (" + item.release_date + ")"
-            /*const watchImg = document.createElement("img")
-                watchImg.src = item.image
-                watchImg.setAttribute("id", "watchImg")*/
+                const removeButton = document.createElement("button")
+                    removeButton.innerText = "Remove"
+                    removeButton.setAttribute("id", "remove")
+                    removeButton.addEventListener("click", event => {
+                        watchListEntry.remove()
+                        removeButton.remove()
+                    })
                 watchButton.addEventListener("click", (event) => {
                     watchList.append(watchListEntry)
+                    watchList.append(removeButton)
                 })
                 watchButton.addEventListener("click", event => alert("Added to watch list!"))
         })
     })
-    
-    form.reset()
+    form.reset() //removes search bar content
 })

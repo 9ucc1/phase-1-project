@@ -29,10 +29,7 @@ Basic layout:
         - stores movie poster + title, year
         - button: delete, clear list
 
-
-I have questions about:
-
-8/06 (resolved)
+8/06 questions (resolved)
 - How to connect an API
 - How to find out what data my API has and how to use it
 - How to return search results? How to randomly generate result?
@@ -64,3 +61,6 @@ Lists:
 - clear list button added
 - want to make delete button on individual watch list items to remove from watch list
 - link movie title to description page ...?
+
+9/06
+- remove buttons added on watch list
