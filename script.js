@@ -81,7 +81,6 @@ form.addEventListener("submit", (event) => {
     fetch(`https://ghibliapi.herokuapp.com/films?q=${event.target[0].value}`)
     .then(response => response.json())
     .then(response => {
-        //console.log(response[0].title)
         const li = document.createElement("ul")
         response.map(item =>{
             const img = document.createElement("img")
