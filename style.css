@@ -28,6 +28,12 @@ form#movie-search {
     text-align: center;
 }
 
+h4#homescreen-message {
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    text-align: center;
+    color: white;
+}
+
 body {
     background: cornflowerblue;
   }

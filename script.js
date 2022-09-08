@@ -1,6 +1,8 @@
 const searchResult = document.getElementById("search-result")
 const exploreResult = document.getElementById("explore-result")
 
+const homescreen = document.getElementById("homescreen-message")
+
 const watchListButton = document.getElementById("watch")
 const clearListButton = document.getElementById("clear-list")
     clearListButton.style.visibility = "hidden"
@@ -25,6 +27,7 @@ allMovies.addEventListener("click", (event) => {
     exploreResult.innerHTML = ""
     watchList.style.visibility = "hidden"
     clearListButton.style.visibility = "hidden"
+    homescreen.style.visibility = "hidden"
     fetch(`https://ghibliapi.herokuapp.com/films`)
     .then(response => response.json())
     .then(response => {
@@ -76,6 +79,7 @@ form.addEventListener("submit", (event) => {
     exploreResult.innerHTML = ""
     watchList.style.visibility = "hidden"
     clearListButton.style.visibility = "hidden"
+    homescreen.style.visibility = "hidden"
     // data we want to pass from the form: what you searched
     //event.target[0].value
     fetch(`https://ghibliapi.herokuapp.com/films?q=${event.target[0].value}`)
