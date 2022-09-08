@@ -8,8 +8,6 @@ Use this web app to read about Studio Ghibli movies and keep track of the ones y
 
 If you've never seen any Studio Ghibli movies and don't know where to start, hit Explore All Movies.
 
-![](README-walkthrough-gif.gif)
-
 ### Sources
 - https://ghibliapi.herokuapp.com/films
 
