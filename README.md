@@ -6,6 +6,8 @@ Read about Studio Ghibli movies and keep track of the ones you want to watch nex
 
 If you've never seen any Studio Ghibli movies and don't know where to start, hit Explore All Movies.
 
+![](README-walkthrough-gif.gif)
+
 https://ghibliapi.herokuapp.com/films
 
 Basic idea:
