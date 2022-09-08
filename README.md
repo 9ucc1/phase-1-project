@@ -3,13 +3,12 @@
 ## STUDIO GHIBLI MOVIE FINDER
 
 ### Introduction
-
 Use this web app to read about Studio Ghibli movies and keep track of the ones you want to watch next!
 
 If you've never seen any Studio Ghibli movies and don't know where to start, hit Explore All Movies.
 
 ### Sources
-- https://ghibliapi.herokuapp.com/films
+https://ghibliapi.herokuapp.com/films
 
 Basic idea:
 - Creates a list of ghibli movies to watch
