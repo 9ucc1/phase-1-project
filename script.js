@@ -19,6 +19,7 @@ watchListButton.addEventListener("click", () => {
 
 title.addEventListener("click", (event) => {
     homescreen.style.visibility = "visible"
+    clearListButton.style.visibility = "hidden"
     exploreResult.innerHTML = ""
     searchResult.innerHTML = ""
     watchList.innerHTML = ""
@@ -76,6 +77,12 @@ allMovies.addEventListener("click", (event) => {
                     watchList.append(removeButton)
                 })
                 watchButton.addEventListener("click", event => alert("Added to watch list!"))
+            })
+            img.addEventListener("mouseover", (event) => {
+                img.style.border = "solid"
+            })
+            img.addEventListener("mouseleave", (event) => {
+                img.style.border= "none"
             })
         })
     })
