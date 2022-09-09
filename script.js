@@ -8,7 +8,6 @@ const watchListButton = document.getElementById("watch")
 const clearListButton = document.getElementById("clear-list")
     clearListButton.style.visibility = "hidden"
 const watchList = document.getElementById("watch-list")
-const watchArray = document.createElement("p")
 watchListButton.addEventListener("click", () => {
     exploreResult.innerHTML = ""
     searchResult.innerHTML = ""
@@ -22,7 +21,7 @@ title.addEventListener("click", (event) => {
     clearListButton.style.visibility = "hidden"
     exploreResult.innerHTML = ""
     searchResult.innerHTML = ""
-    watchList.innerHTML = ""
+    watchList.style.visibility = "hidden"
 })
 
 clearListButton.addEventListener("click", ()=> {
@@ -65,16 +64,18 @@ allMovies.addEventListener("click", (event) => {
                 exploreResult.append(img, titleAndYear, ogTitle, director, description, watchButton)
                 const watchListEntry = document.createElement("li")
                 watchListEntry.innerText = item.title + " (" + item.release_date + ")"
-                const removeButton = document.createElement("button")
-                    removeButton.innerText = "Remove"
-                    removeButton.setAttribute("id", "remove")
-                    removeButton.addEventListener("click", event => {
+                    watchListEntry.addEventListener("mouseover", (event) => {
+                        watchListEntry.style.textDecoration = "line-through"
+                        watchListEntry.style.cursor = "pointer"
+                    })
+                    watchListEntry.addEventListener("mouseleave", (event) => {
+                        watchListEntry.style.textDecoration = "none"
+                    })
+                    watchListEntry.addEventListener("click", (event) => {
                         watchListEntry.remove()
-                        removeButton.remove()
                     })
                 watchButton.addEventListener("click", (event) => {
                     watchList.append(watchListEntry)
-                    watchList.append(removeButton)
                 })
                 watchButton.addEventListener("click", event => alert("Added to watch list!"))
             })
@@ -120,16 +121,18 @@ form.addEventListener("submit", (event) => {
             searchResult.append(li)
             const watchListEntry = document.createElement("li")
                 watchListEntry.innerText = item.title + " (" + item.release_date + ")"
-                const removeButton = document.createElement("button")
-                    removeButton.innerText = "Remove"
-                    removeButton.setAttribute("id", "remove")
-                    removeButton.addEventListener("click", event => {
-                        watchListEntry.remove()
-                        removeButton.remove()
-                    })
+                watchListEntry.addEventListener("mouseover", (event) => {
+                    watchListEntry.style.textDecoration = "line-through"
+                    watchListEntry.style.cursor = "pointer"
+                })
+                watchListEntry.addEventListener("mouseleave", (event) => {
+                    watchListEntry.style.textDecoration = "none"
+                })
+                watchListEntry.addEventListener("click", (event) => {
+                    watchListEntry.remove()
+                })
                 watchButton.addEventListener("click", (event) => {
-                    watchList.append(watchListEntry)
-                    watchList.append(removeButton)
+                    watchList.append(watchListEntry, removeButton)
                 })
                 watchButton.addEventListener("click", event => alert("Added to watch list!"))
         })
