@@ -1,6 +1,7 @@
 const searchResult = document.getElementById("search-result")
 const exploreResult = document.getElementById("explore-result")
 
+const title = document.getElementById("big-title")
 const homescreen = document.getElementById("homescreen-message")
 
 const watchListButton = document.getElementById("watch")
@@ -11,8 +12,16 @@ const watchArray = document.createElement("p")
 watchListButton.addEventListener("click", () => {
     exploreResult.innerHTML = ""
     searchResult.innerHTML = ""
+    homescreen.style.visibility = "hidden"
     watchList.style.visibility = "visible"
     clearListButton.style.visibility = "visible"
+})
+
+title.addEventListener("click", (event) => {
+    homescreen.style.visibility = "visible"
+    exploreResult.innerHTML = ""
+    searchResult.innerHTML = ""
+    watchList.innerHTML = ""
 })
 
 clearListButton.addEventListener("click", ()=> {

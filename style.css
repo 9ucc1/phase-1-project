@@ -2,6 +2,7 @@ h1#big-title {
     color: white;
     text-align: center;
     font-family: "Helvetica Neue", "Arial", sans-serif;
+    cursor: pointer;
 }
 
 button {
@@ -43,7 +44,7 @@ p#explore-result img {
 }
 
 p#search-result img{
-    width: 350px;
+    width: 200px;
 }
 
 img#watchImg {
