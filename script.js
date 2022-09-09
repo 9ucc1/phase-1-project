@@ -132,7 +132,7 @@ form.addEventListener("submit", (event) => {
                     watchListEntry.remove()
                 })
                 watchButton.addEventListener("click", (event) => {
-                    watchList.append(watchListEntry, removeButton)
+                    watchList.append(watchListEntry)
                 })
                 watchButton.addEventListener("click", event => alert("Added to watch list!"))
         })
