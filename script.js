@@ -64,7 +64,8 @@ allMovies.addEventListener("click", (event) => {
                 exploreResult.append(img, titleAndYear, ogTitle, director, description, watchButton)
                 const watchListEntry = document.createElement("li")
                 watchListEntry.innerText = item.title + " (" + item.release_date + ")"
-                    watchListEntry.addEventListener("mouseover", (event) => {
+                watchListEntry.setAttribute("title", "remove from watch list")    
+                watchListEntry.addEventListener("mouseover", (event) => {
                         watchListEntry.style.textDecoration = "line-through"
                         watchListEntry.style.cursor = "pointer"
                     })
@@ -121,6 +122,7 @@ form.addEventListener("submit", (event) => {
             searchResult.append(li)
             const watchListEntry = document.createElement("li")
                 watchListEntry.innerText = item.title + " (" + item.release_date + ")"
+                watchListEntry.setAttribute("title", "remove from watch list") 
                 watchListEntry.addEventListener("mouseover", (event) => {
                     watchListEntry.style.textDecoration = "line-through"
                     watchListEntry.style.cursor = "pointer"
