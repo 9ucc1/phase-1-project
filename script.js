@@ -6,16 +6,18 @@ const watchListButton = document.getElementById("watch")
 const clearListButton = document.getElementById("clear-list")
     clearListButton.style.visibility = "hidden"
 const watchList = document.getElementById("watch-list")
+const watchListEntries = document.getElementById("watch-list-entries")
+    watchList.style.visibility = "hidden"
 watchListButton.addEventListener("click", () => {
     exploreResult.innerHTML = ""
     searchResult.innerHTML = ""
-    homescreen.style.visibility = "hidden"
+    homescreen.style.display = "none"
     watchList.style.visibility = "visible"
     clearListButton.style.visibility = "visible"
 })
 
 title.addEventListener("click", (event) => {
-    homescreen.style.visibility = "visible"
+    homescreen.style.display = "block"
     clearListButton.style.visibility = "hidden"
     exploreResult.innerHTML = ""
     searchResult.innerHTML = ""
@@ -23,7 +25,7 @@ title.addEventListener("click", (event) => {
 })
 
 clearListButton.addEventListener("click", ()=> {
-    watchList.innerHTML = ""
+    watchListEntries.innerHTML = ""
     alert("List cleared!")
 })
 
@@ -34,7 +36,7 @@ allMovies.addEventListener("click", (event) => {
     exploreResult.innerHTML = ""
     watchList.style.visibility = "hidden"
     clearListButton.style.visibility = "hidden"
-    homescreen.style.visibility = "hidden"
+    homescreen.style.display = "none"
     fetch(`https://ghibliapi.herokuapp.com/films`)
     .then(response => response.json())
     .then(response => {
@@ -73,7 +75,7 @@ allMovies.addEventListener("click", (event) => {
                         watchListEntry.remove()
                     })
                 watchButton.addEventListener("click", (event) => {
-                    watchList.append(watchListEntry)
+                    watchListEntries.append(watchListEntry)
                 })
                 watchButton.addEventListener("click", event => alert("Added to watch list!"))
             })
@@ -94,7 +96,7 @@ form.addEventListener("submit", (event) => {
     exploreResult.innerHTML = ""
     watchList.style.visibility = "hidden"
     clearListButton.style.visibility = "hidden"
-    homescreen.style.visibility = "hidden"
+    homescreen.style.display = "none"
     // data we want to pass from the form: what you searched
     //event.target[0].value
     fetch(`https://ghibliapi.herokuapp.com/films?q=${event.target[0].value}`)
@@ -130,7 +132,7 @@ form.addEventListener("submit", (event) => {
                     watchListEntry.remove()
                 })
                 watchButton.addEventListener("click", (event) => {
-                    watchList.append(watchListEntry)
+                    watchListEntries.append(watchListEntry)
                 })
                 watchButton.addEventListener("click", event => alert("Added to watch list!"))
         })

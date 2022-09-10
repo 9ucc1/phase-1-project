@@ -55,6 +55,12 @@ p#search-result img{
     width: 200px;
 }
 
+h3#watch-header{
+    font-family: "Helvetica Neue", "Arial", sans-serif;
+    text-align: center;
+    color: white;
+}
+
 img#watchImg {
     width: 200px;
     cursor: pointer;
@@ -68,7 +74,7 @@ li {
     font-family: "Helvetica Neue", "Arial", sans-serif;
 }
 
-p#watch-list {
+div#watch-list {
     text-align: center;
 }
 
