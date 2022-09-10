@@ -1,9 +1,7 @@
 const searchResult = document.getElementById("search-result")
 const exploreResult = document.getElementById("explore-result")
-
 const title = document.getElementById("big-title")
-const homescreen = document.getElementById("homescreen-message")
-
+const homescreen = document.getElementById("homescreen")
 const watchListButton = document.getElementById("watch")
 const clearListButton = document.getElementById("clear-list")
     clearListButton.style.visibility = "hidden"
