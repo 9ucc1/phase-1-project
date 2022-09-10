@@ -4,6 +4,7 @@
 
 ### Introduction
 Read about Studio Ghibli movies and keep track of the ones you want to watch next!
+
 View the project [here](https://9ucc1.github.io/phase-1-project/).
 
 ![](README-walkthrough-gif.gif)

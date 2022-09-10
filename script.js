@@ -18,10 +18,10 @@ watchListButton.addEventListener("click", () => {
 
 title.addEventListener("click", (event) => {
     homescreen.style.display = "block"
+    watchList.style.visibility = "hidden"
     clearListButton.style.visibility = "hidden"
     exploreResult.innerHTML = ""
     searchResult.innerHTML = ""
-    watchList.style.visibility = "hidden"
 })
 
 clearListButton.addEventListener("click", ()=> {
@@ -42,26 +42,34 @@ allMovies.addEventListener("click", (event) => {
     .then(response => {
         const p = document.createElement("p")
         response.map(item => {
-            const img = document.createElement("img")
-            img.src = item.image
+            const imgList = document.createElement("img")
+            imgList.src = item.image
             const titleAndYear = document.createElement("h2")
             titleAndYear.innerText = item.title + " (" + item.release_date + ")"
-            p.append(img)
+            p.append(imgList)
             exploreResult.append(p)
-            img.setAttribute("id", "allmovieslist")
-            img.addEventListener("click", (event) => {
+            imgList.setAttribute("id", "allmovieslist")
+            imgList.addEventListener("click", (event) => {
                 event.preventDefault()
                 exploreResult.innerHTML = ""
+                const img = document.createElement("img")
+                img.src = item.image
+                img.setAttribute("id", "explore-img")
                 const ogTitle = document.createElement("h4")
                 ogTitle.innerText = item.original_title
                 const director = document.createElement("h4")
                 director.innerText = "Directed by " + item.director
                 const description = document.createElement("p")
                 description.innerText = item.description
+                description.setAttribute("id", "description")
                 const watchButton = document.createElement("button")
                 watchButton.setAttribute("id", "add-to-watch")
                 watchButton.innerText = "Add to Watch List"
-                exploreResult.append(img, titleAndYear, ogTitle, director, description, watchButton)
+                const lineBreak = document.createElement("br")
+                const banner = document.createElement("img")
+                    banner.src = item.movie_banner
+                    banner.setAttribute("id", "banner")
+                exploreResult.append(img, titleAndYear, ogTitle, director, description, watchButton, lineBreak, banner)
                 const watchListEntry = document.createElement("li")
                 watchListEntry.innerText = item.title + " (" + item.release_date + ")"
                 watchListEntry.setAttribute("title", "remove from watch list")    
@@ -80,11 +88,11 @@ allMovies.addEventListener("click", (event) => {
                 })
                 watchButton.addEventListener("click", event => alert("Added to watch list!"))
             })
-            img.addEventListener("mouseover", (event) => {
-                img.style.border = "solid"
+            imgList.addEventListener("mouseover", (event) => {
+                imgList.style.border = "solid"
             })
-            img.addEventListener("mouseleave", (event) => {
-                img.style.border= "none"
+            imgList.addEventListener("mouseleave", (event) => {
+                imgList.style.border= "none"
             })
         })
     })
@@ -107,6 +115,7 @@ form.addEventListener("submit", (event) => {
         response.map(item =>{
             const img = document.createElement("img")
             img.src = item.image
+            img.setAttribute("id", "search-img")
             const watchButton = document.createElement("button")
             watchButton.setAttribute("id", "add-to-watch")
             watchButton.innerText = "Add to Watch List"
@@ -118,7 +127,12 @@ form.addEventListener("submit", (event) => {
             director.innerText = "Directed by " + item.director
             const description = document.createElement("p")
             description.innerText = item.description
-            li.append(img, titleAndYear, ogTitle, director, description, watchButton)
+            description.setAttribute("id", "description")
+            const banner = document.createElement("img")
+                banner.src = item.movie_banner
+            banner.setAttribute("id", "banner")
+            const lineBreak = document.createElement("br")
+            li.append(img, titleAndYear, ogTitle, director, description, watchButton, lineBreak, banner)
             searchResult.append(li)
             const watchListEntry = document.createElement("li")
                 watchListEntry.innerText = item.title + " (" + item.release_date + ")"
