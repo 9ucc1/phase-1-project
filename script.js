@@ -31,7 +31,6 @@ clearListButton.addEventListener("click", ()=> {
 
 const allMovies = document.getElementById("all-movies")
 allMovies.addEventListener("click", (event) => {
-    event.preventDefault()
     searchResult.innerHTML = ""
     exploreResult.innerHTML = ""
     watchList.style.visibility = "hidden"
@@ -44,17 +43,16 @@ allMovies.addEventListener("click", (event) => {
         response.map(item => {
             const imgList = document.createElement("img")
             imgList.src = item.image
-            const titleAndYear = document.createElement("h2")
-            titleAndYear.innerText = item.title + " (" + item.release_date + ")"
             p.append(imgList)
             exploreResult.append(p)
             imgList.setAttribute("id", "allmovieslist")
             imgList.addEventListener("click", (event) => {
-                event.preventDefault()
                 exploreResult.innerHTML = ""
                 const img = document.createElement("img")
                 img.src = item.image
                 img.setAttribute("id", "explore-img")
+                const titleAndYear = document.createElement("h2")
+                titleAndYear.innerText = item.title + " (" + item.release_date + ")"
                 const ogTitle = document.createElement("h4")
                 ogTitle.innerText = item.original_title
                 const director = document.createElement("h4")
@@ -106,8 +104,6 @@ form.addEventListener("submit", (event) => {
     watchList.style.visibility = "hidden"
     clearListButton.style.visibility = "hidden"
     homescreen.style.display = "none"
-    // data we want to pass from the form: what you searched
-    //event.target[0].value
     fetch(`https://ghibliapi.herokuapp.com/films?q=${event.target[0].value}`)
     .then(response => response.json())
     .then(response => {
@@ -153,5 +149,5 @@ form.addEventListener("submit", (event) => {
                 watchButton.addEventListener("click", event => alert("Added to watch list!"))
         })
     })
-    form.reset() //removes search bar content
+    form.reset()
 })

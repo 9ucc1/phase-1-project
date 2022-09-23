@@ -16,5 +16,5 @@ This web app allows users to browse through all Studio Ghibli movies or return a
 This web app uses JavaScript, HTML, and CSS on a single page without reloads.
 
 ### Sources
-- [Ghibli API](https://ghibliapi.herokuapp.com/films) for film data and images
+- [Ghibli API](https://ghibliapi.herokuapp.com) for film data and images
 - [Logo image](https://www.the-arcade.ie/2014/08/studio-ghibli-rises-part-2/) on homepage
