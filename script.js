@@ -1,8 +1,9 @@
 const searchResult = document.getElementById("search-result")
 const exploreResult = document.getElementById("explore-result")
-const title = document.getElementById("big-title")
+const appTitle = document.getElementById("big-title")
 const homescreen = document.getElementById("homescreen")
 const watchListButton = document.getElementById("watch")
+const watchButton = document.getElementById("add-to-watch")
 const clearListButton = document.getElementById("clear-list")
     clearListButton.style.visibility = "hidden"
 const watchList = document.getElementById("watch-list")
@@ -16,7 +17,7 @@ watchListButton.addEventListener("click", () => {
     clearListButton.style.visibility = "visible"
 })
 
-title.addEventListener("click", (event) => {
+appTitle.addEventListener("click", (event) => {
     homescreen.style.display = "block"
     watchList.style.visibility = "hidden"
     clearListButton.style.visibility = "hidden"
@@ -29,6 +30,79 @@ clearListButton.addEventListener("click", ()=> {
     alert("List cleared!")
 })
 
+//start of new stuff//
+
+let fetchResponse
+
+function descriptionPage(item){
+    exploreResult.innerHTML= ""
+    const { image, title, release_date, original_title, director, description, movie_banner } = item
+    const img = document.createElement("img")
+        img.src = image
+        img.setAttribute("id", "explore-img")
+    const titleAndYear = document.createElement("h2")
+        titleAndYear.innerText = title + " (" + release_date + ")"
+    const ogTitle = document.createElement("h4")
+        ogTitle.innerText = original_title
+    const directedBy = document.createElement("h4")
+        directedBy.innerText = "Directed by " + director
+    const descriptionText = document.createElement("p")
+        descriptionText.innerText = description
+    const watchButton = document.createElement("button")
+        watchButton.setAttribute("id", "add-to-watch")
+        watchButton.innerText = "Add to Watch List"
+        const watchListEntry = document.createElement("li")
+                watchListEntry.innerText = title + " (" + release_date + ")"
+                watchListEntry.setAttribute("title", "remove from watch list")    
+                watchListEntry.addEventListener("mouseover", (event) => {
+                        watchListEntry.style.textDecoration = "line-through"
+                        watchListEntry.style.cursor = "pointer"
+                    })
+                    watchListEntry.addEventListener("mouseleave", (event) => {
+                        watchListEntry.style.textDecoration = "none"
+                    })
+                    watchListEntry.addEventListener("click", (event) => {
+                        watchListEntry.remove()
+                    })
+                watchButton.addEventListener("click", (event) => {
+                    watchListEntries.append(watchListEntry)
+                    alert("Added to watch list!")
+                })
+    const lineBreak = document.createElement("br")
+    const banner = document.createElement("img")
+        banner.src = movie_banner
+        banner.setAttribute("id", "banner")
+    exploreResult.append(img, titleAndYear, ogTitle, directedBy, description, lineBreak, watchButton, lineBreak, banner)
+}
+
+//function descriptionPages(descriptionPage){}
+
+function watchButtonListeners(){
+    console.log("hi")
+    const watchListEntry = document.createElement("li")
+                //watchListEntry.innerText = title + " (" + release_date + ")"
+                watchListEntry.innerText = "hi"
+                watchListEntry.setAttribute("title", "remove from watch list")    
+                watchListEntry.addEventListener("mouseover", (event) => {
+                        watchListEntry.style.textDecoration = "line-through"
+                        watchListEntry.style.cursor = "pointer"
+                    })
+                    watchListEntry.addEventListener("mouseleave", (event) => {
+                        watchListEntry.style.textDecoration = "none"
+                    })
+                    watchListEntry.addEventListener("click", (event) => {
+                        watchListEntry.remove()
+                    })
+                
+                watchButton.addEventListener("click", (event) => {
+                    console.log("clicked")
+                    watchListEntries.append(watchListEntry)
+                })
+                watchButton.addEventListener("click", event => alert("Added to watch list!"))
+}
+
+//end of new stuff
+
 const allMovies = document.getElementById("all-movies")
 allMovies.addEventListener("click", (event) => {
     searchResult.innerHTML = ""
@@ -39,17 +113,22 @@ allMovies.addEventListener("click", (event) => {
     fetch(`https://ghibliapi.herokuapp.com/films`)
     .then(response => response.json())
     .then(response => {
+        fetchResponse = response
+
         const p = document.createElement("p")
         response.map(item => {
+            
             const imgList = document.createElement("img")
             imgList.src = item.image
             p.append(imgList)
             exploreResult.append(p)
             imgList.setAttribute("id", "allmovieslist")
             imgList.addEventListener("click", (event) => {
-                exploreResult.innerHTML = ""
+                descriptionPage(item)
+                /*exploreResult.innerHTML = ""
+                const { image } = item
                 const img = document.createElement("img")
-                img.src = item.image
+                img.src = image
                 img.setAttribute("id", "explore-img")
                 const titleAndYear = document.createElement("h2")
                 titleAndYear.innerText = item.title + " (" + item.release_date + ")"
@@ -63,6 +142,7 @@ allMovies.addEventListener("click", (event) => {
                 const watchButton = document.createElement("button")
                 watchButton.setAttribute("id", "add-to-watch")
                 watchButton.innerText = "Add to Watch List"
+                watchButtonListeners()
                 const lineBreak = document.createElement("br")
                 const banner = document.createElement("img")
                     banner.src = item.movie_banner
@@ -84,7 +164,7 @@ allMovies.addEventListener("click", (event) => {
                 watchButton.addEventListener("click", (event) => {
                     watchListEntries.append(watchListEntry)
                 })
-                watchButton.addEventListener("click", event => alert("Added to watch list!"))
+                watchButton.addEventListener("click", event => alert("Added to watch list!"))*/
             })
             imgList.addEventListener("mouseover", (event) => {
                 imgList.style.border = "solid"
@@ -151,3 +231,8 @@ form.addEventListener("submit", (event) => {
     })
     form.reset()
 })
+
+/*fetchResponse.forEach(function(movie){
+    console.log(`${movie}`)
+}
+    (item) => descriptionPage(item))*/
