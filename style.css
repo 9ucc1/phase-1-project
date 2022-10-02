@@ -22,10 +22,7 @@ p#watch-list {
     text-align: center;
 }
 
-div#search-result-display {
-    text-align: center;
-}
-div#explore-result-display {
+div#result-display {
     text-align: center;
 }
 
@@ -69,6 +66,7 @@ h3#watch-header{
 img#banner {
     width: 500px;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 img#allmovieslist {
