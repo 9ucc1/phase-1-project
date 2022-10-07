@@ -94,10 +94,11 @@ function descriptionPage(item){
             })
     const lineBreak = document.createElement("br")
     const lineBreak2 = document.createElement("br")
+    const lineBreak3 = document.createElement("br")
     const banner = document.createElement("img")
         banner.src = movie_banner
         banner.setAttribute("id", "banner")
-    result.append(img, titleAndYear, ogTitle, directedBy, description, lineBreak, watchButton, lineBreak2, banner)
+    result.append(img, titleAndYear, ogTitle, directedBy, description, lineBreak, watchButton, lineBreak2, banner, lineBreak3)
 }
 
 function watchListFunction(item){
